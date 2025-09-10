@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import './App.css';
 import TodoList from "./components/TodoList";
-import { initialState, todoReducer } from "./reducer/todoReducer";
-import { TodoContext as TodoContext1 } from "./context/TodoContext";
+import { initialState, todoReducer } from "./reducers/todoReducer";
+import { TodoContext as TodoContext1 } from "./contexts/TodoContext";
 
 function App() {
   // the Hooks API manage component data state
