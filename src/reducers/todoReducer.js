@@ -9,17 +9,17 @@ export const todoReducer = (state, action) => {
   switch (action.type) {
     case 'Done':
       return state.map(todo =>
-          {
-            if(action.id === todo.id){
-                return {...todo, done: !todo.done};
-            }
-            return todo;
-          }
+          todo.id === action.id ? {...todo, done: !todo.done} : todo
       );
+    case 'Add':
+      return [
+        ...state,
+        {id: Date.now(), text: action.text, done: false}
+      ];
+    case 'Delete':
+      return state.filter(todo => todo.id !== action.id);
     default:
-        return state;
-
-
+      return state;
   }
 
 };
