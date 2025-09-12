@@ -1,97 +1,113 @@
-/* Element-UI风格美化 */
+/* 引入 Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif; /* 使用更现代的字体 */
+    background-color: #f0f2f5; /* 更柔和的背景色 */
+}
+
 .todo-group {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 40px;
+    background: #ffffff; /* 组件背景 */
+    padding: 30px; /* 添加内边距 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 更柔和的阴影 */
 }
 
 .todo-title {
-    font-size: 2em;
+    font-size: 2.8em; /* 增大标题 */
     font-weight: bold;
-    margin-bottom: 18px;
+    margin-bottom: 25px; /* 增加底部间距 */
     text-align: center;
-    color: #303133;
-    letter-spacing: 1px;
+    color: #2c3e50; /* 更深的颜色 */
+    letter-spacing: 1.5px; /* 字母间距 */
+    text-transform: uppercase; /* 字母大写 */
+    border-bottom: 2px solid #409eff; /* 底部边框 */
+    padding-bottom: 10px; /* 底部内边距 */
 }
 
 .todo-item {
     display: flex;
     align-items: center;
-    background: #fff;
-    border: 1px solid #ebeef5;
-    box-shadow: 0 2px 8px rgba(64,158,255,0.08);
-    border-radius: 6px;
-    margin-bottom: 16px;
-    padding: 0;
+    background: #ffffff;
+    border: 1px solid #dcdfe6; /* 更柔和的边框 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 更柔和的阴影 */
+    border-radius: 8px; /* 圆角 */
+    margin-bottom: 20px; /* 增加底部间距 */
+    padding: 10px; /* 添加内边距 */
     width: 440px;
-    transition: box-shadow 0.2s, border-color 0.2s;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* 更平滑的过渡 */
 }
 
 .todo-item:hover {
-    box-shadow: 0 4px 16px rgba(64,158,255,0.18);
+    box-shadow: 0 6px 20px rgba(64, 158, 255, 0.15); /* 更显著的悬停效果 */
     border-color: #409eff;
 }
 
 .todo-item span {
     flex: 1;
     cursor: pointer;
-    font-size: 1.15em;
-    padding: 14px 0;
+    font-size: 1.2em; /* 增大字体 */
+    padding: 12px; /* 增加内边距 */
     text-align: center;
-    color: #303133;
-    transition: color 0.2s;
+    color: #34495e; /* 更深的颜色 */
+    transition: color 0.3s ease; /* 更平滑的过渡 */
     user-select: none;
 }
 
 .todo-item.done span {
     text-decoration: line-through;
-    color: #909399;
+    color: #95a5a6; /* 更柔和的颜色 */
 }
 
 .todo-item button {
-    background: #f56c6c;
+    background: #e74c3c; /* 更柔和的红色 */
     border: none;
     color: #fff;
     font-size: 1.1em;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 6px;
     cursor: pointer;
-    margin: 0 10px 0 0;
-    transition: background 0.2s;
+    margin-left: 10px; /* 更好的间距 */
+    transition: background 0.3s ease; /* 更平滑的过渡 */
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    box-shadow: 0 1px 4px rgba(245,108,108,0.08);
+    box-shadow: 0 1px 4px rgba(231, 76, 60, 0.1); /* 更柔和的阴影 */
 }
 
 .todo-item button:hover {
-    background: #ff4949;
+    background: #c0392b; /* 更深的红色 */
 }
 
 .todo-input-group {
     display: flex;
     width: 440px;
-    margin-bottom: 0;
+    margin-bottom: 20px; /* 增加底部间距 */
 }
 
 .todo-input-group input {
     width: 100%;
-    padding: 12px 14px;
-    font-size: 1.15em;
+    padding: 16px 14px; /* 增加内边距以增大输入框 */
+    font-size: 1.15em; /* 字体大小 */
     border: 1px solid #dcdfe6;
     border-radius: 6px 0 0 6px;
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    background: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 更平滑的过渡 */
+    background: #ffffff;
     box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 添加阴影 */
 }
 
+/* 输入框聚焦效果 */
 .todo-input-group input:focus {
     border-color: #409eff;
-    box-shadow: 0 0 4px rgba(64,158,255,0.18);
+    box-shadow: 0 0 6px rgba(64, 158, 255, 0.2); /* 更显著的聚焦效果 */
 }
 
 .todo-input-group button {
@@ -104,11 +120,28 @@
     cursor: pointer;
     width: 90px;
     height: 44px;
-    transition: background 0.2s;
+    transition: background 0.3s ease; /* 更平滑的过渡 */
     font-weight: bold;
-    box-shadow: 0 1px 4px rgba(64,158,255,0.08);
+    box-shadow: 0 1px 4px rgba(64, 158, 255, 0.1); /* 更柔和的阴影 */
+}
+
+.todo-input-group button:hover {
+    background: #66b1ff; /* 更柔和的悬停效果 */
+}
+
+/* 添加按钮的样式 */
+.add-button {
+    background: #409eff; /* 按钮背景 */
+    color: white;
+    border: none;
+    padding: 12px 20px; /* 内边距 */
+    font-size: 1.2em; /* 字体大小 */
+    border-radius: 6px; /* 圆角 */
+    cursor: pointer;
+    transition: background 0.3s ease; /* 更平滑的过渡 */
+    box-shadow: 0 1px 4px rgba(64, 158, 255, 0.1); /* 更柔和的阴影 */
 }
 
 .add-button:hover {
-    background: #66b1ff;
+    background: #66b1ff; /* 悬停效果 */
 }
