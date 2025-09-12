@@ -2,6 +2,10 @@
     width: 200px;
     border: 1px solid black;
     padding: 5px;
+    &.done{
+        text-decoration: line-through;
+        background-color: lightgray;
+    }
 }
 .todo-group{
     justify-self: center;
