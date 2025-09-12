@@ -4,31 +4,37 @@
 body {
     font-family: 'Roboto', sans-serif; /* 使用更现代的字体 */
     background-color: #f0f2f5; /* 更柔和的背景色 */
+    margin: 0;
+    padding: 0;
 }
 
+/* 主容器 */
 .todo-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin: 40px auto; /* 居中对齐 */
+    max-width: 600px; /* 最大宽度 */
     background: #ffffff; /* 组件背景 */
     padding: 30px; /* 添加内边距 */
     border-radius: 12px; /* 圆角 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 更柔和的阴影 */
 }
 
+/* 标题样式 */
 .todo-title {
-    font-size: 2.8em; /* 增大标题 */
+    font-size: 3em; /* 增大标题 */
     font-weight: bold;
     margin-bottom: 25px; /* 增加底部间距 */
     text-align: center;
     color: #2c3e50; /* 更深的颜色 */
-    letter-spacing: 1.5px; /* 字母间距 */
+    letter-spacing: 2px; /* 字母间距 */
     text-transform: uppercase; /* 字母大写 */
-    border-bottom: 2px solid #409eff; /* 底部边框 */
+    border-bottom: 3px solid #409eff; /* 更粗的底部边框 */
     padding-bottom: 10px; /* 底部内边距 */
 }
 
+/* 待办事项项样式 */
 .todo-item {
     display: flex;
     align-items: center;
@@ -38,7 +44,8 @@ body {
     border-radius: 8px; /* 圆角 */
     margin-bottom: 20px; /* 增加底部间距 */
     padding: 10px; /* 添加内边距 */
-    width: 440px;
+    width: 100%; /* 适应宽度 */
+    max-width: 440px; /* 限制最大宽度 */
     transition: box-shadow 0.3s ease, border-color 0.3s ease; /* 更平滑的过渡 */
 }
 
@@ -47,6 +54,7 @@ body {
     border-color: #409eff;
 }
 
+/* 待办事项文本 */
 .todo-item span {
     flex: 1;
     cursor: pointer;
@@ -63,6 +71,7 @@ body {
     color: #95a5a6; /* 更柔和的颜色 */
 }
 
+/* 删除按钮样式 */
 .todo-item button {
     background: #e74c3c; /* 更柔和的红色 */
     border: none;
@@ -85,16 +94,19 @@ body {
     background: #c0392b; /* 更深的红色 */
 }
 
+/* 输入框组样式 */
 .todo-input-group {
     display: flex;
-    width: 440px;
+    width: 100%; /* 适应宽度 */
+    max-width: 440px; /* 限制最大宽度 */
     margin-bottom: 20px; /* 增加底部间距 */
 }
 
+/* 输入框样式 */
 .todo-input-group input {
     width: 100%;
     padding: 16px 14px; /* 增加内边距以增大输入框 */
-    font-size: 1.15em; /* 字体大小 */
+    font-size: 1.5em; /* 增大字体大小 */
     border: 2px solid #dcdfe6; /* 更明显的边框 */
     border-radius: 8px 0 0 8px; /* 圆角 */
     outline: none;
@@ -110,16 +122,17 @@ body {
     box-shadow: 0 0 8px rgba(64, 158, 255, 0.3); /* 更显著的聚焦效果 */
 }
 
+/* 提交按钮样式 */
 .todo-input-group button {
     background: #409eff;
     color: white;
     border: none;
     padding: 0 22px;
-    font-size: 1.1em;
+    font-size: 1.5em; /* 增大字体大小 */
     border-radius: 0 8px 8px 0; /* 圆角 */
     cursor: pointer;
     width: 90px;
-    height: 48px; /* 增加高度 */
+    height: 56px; /* 增加高度 */
     transition: background 0.3s ease; /* 更平滑的过渡 */
     font-weight: bold;
     box-shadow: 0 1px 4px rgba(64, 158, 255, 0.1); /* 更柔和的阴影 */
@@ -129,13 +142,13 @@ body {
     background: #66b1ff; /* 更柔和的悬停效果 */
 }
 
-/* 添加按钮的样式 */
+/* 添加按钮样式 */
 .add-button {
     background: #409eff; /* 按钮背景 */
     color: white;
     border: none;
     padding: 12px 20px; /* 内边距 */
-    font-size: 1.2em; /* 字体大小 */
+    font-size: 1.5em; /* 增大字体大小 */
     border-radius: 8px; /* 圆角 */
     cursor: pointer;
     transition: background 0.3s ease; /* 更平滑的过渡 */
@@ -144,4 +157,19 @@ body {
 
 .add-button:hover {
     background: #66b1ff; /* 悬停效果 */
+}
+
+/* 媒体查询以支持响应式设计 */
+@media (max-width: 600px) {
+    .todo-group {
+        width: 90%; /* 在小屏幕上使用更小的宽度 */
+    }
+
+    .todo-title {
+        font-size: 2.5em; /* 调整标题大小 */
+    }
+
+    .todo-item {
+        width: 100%; /* 适应小屏幕 */
+    }
 }
