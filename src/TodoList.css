@@ -95,19 +95,19 @@ body {
     width: 100%;
     padding: 16px 14px; /* 增加内边距以增大输入框 */
     font-size: 1.15em; /* 字体大小 */
-    border: 1px solid #dcdfe6;
-    border-radius: 6px 0 0 6px;
+    border: 2px solid #dcdfe6; /* 更明显的边框 */
+    border-radius: 8px 0 0 8px; /* 圆角 */
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 更平滑的过渡 */
     background: #ffffff;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 添加阴影 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
 }
 
 /* 输入框聚焦效果 */
 .todo-input-group input:focus {
     border-color: #409eff;
-    box-shadow: 0 0 6px rgba(64, 158, 255, 0.2); /* 更显著的聚焦效果 */
+    box-shadow: 0 0 8px rgba(64, 158, 255, 0.3); /* 更显著的聚焦效果 */
 }
 
 .todo-input-group button {
@@ -116,10 +116,10 @@ body {
     border: none;
     padding: 0 22px;
     font-size: 1.1em;
-    border-radius: 0 6px 6px 0;
+    border-radius: 0 8px 8px 0; /* 圆角 */
     cursor: pointer;
     width: 90px;
-    height: 44px;
+    height: 48px; /* 增加高度 */
     transition: background 0.3s ease; /* 更平滑的过渡 */
     font-weight: bold;
     box-shadow: 0 1px 4px rgba(64, 158, 255, 0.1); /* 更柔和的阴影 */
@@ -136,7 +136,7 @@ body {
     border: none;
     padding: 12px 20px; /* 内边距 */
     font-size: 1.2em; /* 字体大小 */
-    border-radius: 6px; /* 圆角 */
+    border-radius: 8px; /* 圆角 */
     cursor: pointer;
     transition: background 0.3s ease; /* 更平滑的过渡 */
     box-shadow: 0 1px 4px rgba(64, 158, 255, 0.1); /* 更柔和的阴影 */
