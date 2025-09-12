@@ -18,12 +18,15 @@ const TodoList = () => {
     }
     return (
         <div className={"todo-group"}>
-            <div>This is the TodoList Component.</div>
+            <div>Todo List</div>
+            {state.length === 0 && (
+                <div className="todo-desc">Add the things you need to do today...</div>
+            )}
 
             {state.map(({text, done, id}) => (
                 <div key={id} className={`todo-item ${done ? 'done' : ''}`}>
                     <span onClick={() => toggleDone(id)}>{text}</span>
-                    <button onClick={() => deleteTodo(id)}>Delete</button>
+                    <button onClick={() => deleteTodo(id)}>X</button>
                 </div>
             ))}
             <div>
@@ -32,7 +35,7 @@ const TodoList = () => {
                     onChange={e => setInput(e.target.value)}
                     placeholder="Add new todo"
                 />
-                <button onClick={addTodo}>Add</button>
+                <button className="add-button" onClick={addTodo} >Add</button>
             </div>
         </div>
     );
