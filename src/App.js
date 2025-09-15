@@ -1,13 +1,16 @@
 import './App.css';
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
-
+import TodoList from "./components/TodoList";
+import {initialState, todoReducer} from "./reducers/todoReducer";
+import {useReducer} from "react";
+import { TodoContext } from "./contexts/TodoContext";
 function DefaultLayout() {
     return <>
         <header>
             <nav>
                 <ul>
                     <li><NavLink to={'/'}>Home</NavLink></li>
-                    <li>todo list</li>
+                    <li><NavLink to={'todos'}>todo list</NavLink></li>
                     <li><NavLink to={'/about'}>About</NavLink></li>
                 </ul>
             </nav>
@@ -21,15 +24,34 @@ function DefaultLayout() {
     </>;
 }
 
+function TodoPage() {
+    const [state, dispatch] = useReducer(todoReducer, initialState);
+    const value={state, dispatch};
+    return <TodoContext.Provider value={value}>
+                    <TodoList/>
+                </TodoContext.Provider>;
+}
+
+function ErrorPage() {
+    return <h1>404 - Not Found!</h1>;
+}
+
 const routes = [
     {
         path: '/',
         element: <DefaultLayout/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: ' ',
                 element: <h1>Home Page</h1>
-            }, {
+            },{
+                path: '/todos',
+                element:<TodoPage/>,
+
+            },
+
+            {
                 path: 'about',
                 element: <h1>About Us</h1>
             }
@@ -40,16 +62,13 @@ const router = createBrowserRouter(routes);
 function App() {
     // the Hooks API manage component data state
 
-    //const [state, dispatch] = useReducer(todoReducer, initialState);
-    //const value={state, dispatch};
+
 
     return (
         <div className="App">
             <RouterProvider router={router}> </RouterProvider>
             {/*<DefaultLayout/>*/}
-            {/*<TodoContext.Provider value={value}>*/}
-            {/*  <TodoList/>*/}
-            {/*</TodoContext.Provider>*/}
+
         </div>
     );
 }
