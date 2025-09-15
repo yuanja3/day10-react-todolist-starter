@@ -19,7 +19,7 @@ const DoneTodos = () => {
                     <div>No completed todos.</div>
                 ) : (
                     doneTodos.map(({ id, text }) => (
-                        <div key={id} className={`todo-item`}><span>{text}</span></div>
+                        <div key={id} className={`todo-item`} onClick={()=>window.location.href=`/todos/${id}`}><span>{text}</span></div>
                     ))
                 )}
             </div>
