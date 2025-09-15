@@ -20,6 +20,10 @@ export const todoReducer = (state, action) => {
             return state.filter(todo => todo.id !== action.id);
         case 'LOAD_TODOS':
             return action.todos;
+        case 'Update':
+            return state.map(todo =>
+                todo.id === action.id ? {...todo, text: action.text} : todo
+            );
         default:
             return state;
 
