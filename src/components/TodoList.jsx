@@ -1,21 +1,50 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import '../TodoList.css';
+import {getTodos, addTodo, deleteTodos, updateTodo} from "../apis/api";
 const TodoList = () => {
   const {state, dispatch} = useContext(TodoContext);
     const [input, setInput] = useState("");
-    function toggleDone(id) {
+    /*function toggleDone(id) {
         dispatch({type: 'Done', id:id});
+    }*/
+    const toggleDone=async(id)=>{
+        const todo=state.find(t=>t.id===id);
+        const updatedTodo={...todo,done:!todo.done};
+        updateTodo(id,updatedTodo).then(response=>{
+            console.log(response.data);
+            dispatch({type:'Done',id:id});
+        });
     }
-    function addTodo() {
-        if (input.trim()) {
-            dispatch({type: 'Add', text: input});
-            setInput("");
-        }
-    }
-    function deleteTodo(id) {
+    // function addTodo() {
+    //     if (input.trim()) {
+    //         dispatch({type: 'Add', text: input});
+    //         setInput("");
+    //     }
+    // }
+    /*function deleteTodo(id) {
         dispatch({type: 'Delete',id: id});
+    }*/
+    const deleteTodo=async(id)=>{
+        deleteTodos(id).then(response=>{
+            console.log(response.data);
+            dispatch({type:'Delete',id:id});
+        });
     }
+    const handleAddTodo=async ()=>{
+        const todo={text:input,done:false};
+        addTodo(todo).then(response=>{
+            console.log(response.data);
+            dispatch({type:'Add',todo:response.data});
+
+        });
+        setInput("");
+    }
+    useEffect(() => {
+        getTodos().then(todos => {
+           dispatch({type: 'LOAD_TODOS', todos: todos.data});
+        });
+    }, []);
     return (
         <div className={"todo-group"}>
             <div>Todo List</div>
@@ -35,7 +64,7 @@ const TodoList = () => {
                     onChange={e => setInput(e.target.value)}
                     placeholder="Add new todo"
                 />
-                <button className="add-button" onClick={addTodo} >Add</button>
+                <button className="add-button" onClick={handleAddTodo} >Add</button>
             </div>
         </div>
     );

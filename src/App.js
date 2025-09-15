@@ -1,5 +1,5 @@
 import './App.css';
-import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider, useParams} from "react-router";
 import TodoList from "./components/TodoList";
 import {initialState, todoReducer} from "./reducers/todoReducer";
 import {useReducer} from "react";
@@ -36,6 +36,12 @@ function ErrorPage() {
     return <h1>404 - Not Found!</h1>;
 }
 
+function TodoDetail() {
+    const {id}=useParams();
+    console.log(id);
+    return <h2>This is : {id} Detail.</h2>;
+}
+
 const routes = [
     {
         path: '/',
@@ -46,11 +52,14 @@ const routes = [
                 path: ' ',
                 element: <h1>Home Page</h1>
             },{
-                path: '/todos',
+                path: 'todos',
                 element:<TodoPage/>,
 
             },
-
+            {
+                path: 'todos/:id',
+                element:<TodoDetail/>
+            },
             {
                 path: 'about',
                 element: <h1>About Us</h1>
