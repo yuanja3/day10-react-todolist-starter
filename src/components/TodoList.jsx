@@ -15,7 +15,7 @@ const TodoList = () => {
     }*/
     const toggleDone=async(id)=>{
         const todo=state.find(t=>t.id===id);
-        const updatedTodo={...todo,done:!todo.done};
+        const updatedTodo={...todo,done:1-todo.done};
         updateTodo(id,updatedTodo).then(response=>{
             console.log(response.data);
             dispatch({type:'Done',id:id});
@@ -55,6 +55,7 @@ const TodoList = () => {
             message.success('Todo added successfully');
         });
         setInput("");
+
     };
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingId, setEditingId] = useState(null);
@@ -82,7 +83,7 @@ const TodoList = () => {
     return (
         <div >
             <div>Todo List</div>
-            <div className={"todo-group"}>
+            <div className={"todo-group"} >
             {state.length === 0 && (
                 <div className="todo-desc">Add the things you need to do today...</div>
             )}
@@ -90,7 +91,7 @@ const TodoList = () => {
             {state.map(({text, done, id}) => (
                 <div key={id} className={`todo-item ${done ? 'done' : ''}`}>
                     <span onClick={() => toggleDone(id)}>{text}</span>
-                    <Button type="primary" onClick={() => showModal(id, text)}>
+                    <Button onClick={() => showModal(id, text)}>
                         <EditOutlined/>
                     </Button>
                     <Modal

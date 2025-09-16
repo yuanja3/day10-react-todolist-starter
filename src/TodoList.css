@@ -75,27 +75,7 @@ body {
 }
 
 
-.todo-item button {
-    background: #e74c3c; 
-    border: none;
-    color: #fff;
-    font-size: 1.1em;
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-left: 10px; 
-    transition: background 0.3s ease; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    box-shadow: 0 1px 4px rgba(231, 76, 60, 0.1); 
-}
 
-.todo-item button:hover {
-    background: #c0392b; 
-}
 
 
 .todo-input-group {
@@ -120,30 +100,11 @@ body {
 }
 
 
-.todo-input-group input:focus {
-    border-color: #409eff;
-    box-shadow: 0 0 8px rgba(64, 158, 255, 0.3); 
-}
 
 
-.todo-input-group button {
-    background: #409eff;
-    color: white;
-    border: none;
-    padding: 0 22px;
-    font-size: 1.5em; 
-    border-radius: 0 8px 8px 0; 
-    cursor: pointer;
-    width: 90px;
-    height: 56px; 
-    transition: background 0.3s ease; 
-    font-weight: bold;
-    box-shadow: 0 1px 4px rgba(64, 158, 255, 0.1); 
-}
 
-.todo-input-group button:hover {
-    background: #66b1ff; 
-}
+
+
 
 
 .add-button {

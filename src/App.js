@@ -32,6 +32,7 @@ function TodoDetail() {
     const {id}=useParams();
     const [state, dispatch] = useReducer(todoReducer, initialState);
     const value={state, dispatch};
+    console.log(id);
     return <TodoContext.Provider value={value}>
         <TodoItemDetail/>
 
